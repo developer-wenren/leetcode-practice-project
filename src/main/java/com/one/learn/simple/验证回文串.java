@@ -8,8 +8,8 @@ package com.one.learn.simple;
  */
 public class 验证回文串 {
     public static void main(String[] args) {
-        System.out.println(isPalindrome2("A man, a plan, a canal: Panama"
-        ));
+        assert (isPalindrome("A man, a plan, a canal: Panama"));
+        assert (isPalindrome2("A man, a plan, a canal: Panama"));
     }
 
     /**
