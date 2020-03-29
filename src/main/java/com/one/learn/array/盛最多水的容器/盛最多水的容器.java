@@ -1,4 +1,4 @@
-package com.one.learn.simple.盛最多水的容器;
+package com.one.learn.array.盛最多水的容器;
 
 /**
  * 盛最多水的容器
@@ -10,6 +10,8 @@ package com.one.learn.simple.盛最多水的容器;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/container-with-most-water
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ * <p>
+ * 思路：短板向内移动，寻找更大高度的板，尝试获取更大的面积
  *
  * @author one
  * @date 2020/03/29
@@ -35,11 +37,26 @@ public class 盛最多水的容器 {
 
     /**
      * 双指针
+     * <p>
      * 一个从头开始，一个从尾巴开始，获得较短的高，计算他们对应的面积，保留下来，等待笔记
      *
      * @param height
      * @return
      */
+    public int maxArea4(int[] height) {
+        int max = 0;
+        int left = 0, right = height.length - 1;
+        while (left < right) {
+            max = Math.max(Math.min(height[left], height[right]) * (right - left), max);
+            if (height[left] < height[right]) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return max;
+    }
+
     public int maxArea(int[] height) {
         int max = 0;
         int i = 0, j = height.length - 1;
@@ -76,5 +93,6 @@ public class 盛最多水的容器 {
         }
         return max;
     }
+
 
 }

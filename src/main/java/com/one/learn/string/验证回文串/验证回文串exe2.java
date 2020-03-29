@@ -1,5 +1,5 @@
 
-package com.one.learn.simple.验证回文串;
+package com.one.learn.string.验证回文串;
 
 import com.sun.tools.javac.util.Assert;
 
