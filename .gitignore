@@ -1,2 +1,7 @@
 # Project exclude paths
+/target/workspace
+.project
+.classpath
 /target/
+/.idea
+.iml

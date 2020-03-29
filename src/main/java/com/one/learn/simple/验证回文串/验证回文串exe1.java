@@ -1,15 +1,17 @@
 
-package com.one.learn.simple;
+package com.one.learn.simple.验证回文串;
+
+import com.sun.tools.javac.util.Assert;
 
 /**
  * 125. 验证回文串
  * 给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。
  * https://leetcode-cn.com/problems/valid-palindrome/
  */
-public class 验证回文串 {
+public class 验证回文串exe1 {
     public static void main(String[] args) {
-        assert (isPalindrome("A man, a plan, a canal: Panama"));
-        assert (isPalindrome2("A man, a plan, a canal: Panama"));
+        Assert.check(isPalindrome("A man, a plan, a canal: Panama"));
+        Assert.check(isPalindrome2("A man, a plan, a canal: Panama"));
     }
 
     /**
