@@ -40,6 +40,31 @@ import java.util.HashSet;
 public class Solution0405 {
 
     /**
+     * 头节点到环节点的距离等于快慢节点相遇点到环节点的距离
+     *
+     * @param head
+     * @return
+     */
+    public ListNode detectCycle5(ListNode head) {
+        ListNode slow = head, fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                // 另一个节点
+                ListNode slow2 = head;
+                while (slow2 != slow) {
+                    slow = slow.next;
+                    slow2 = slow2.next;
+                }
+                return slow2;
+            }
+        }
+        return null;
+    }
+
+
+    /**
      * 相同时间，速度差就是距离差，
      * 快指针走的路：a + b + c (a为入环点前的距离，b为首次相遇减去a的距离，c为快指针多走的路减去b的距离)
      *
