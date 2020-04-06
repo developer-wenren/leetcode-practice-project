@@ -27,7 +27,7 @@ import com.one.learn.linkedlist.ListNode;
  * 你不能只是单纯的改变节点内部的值，而是需要实际进行节点交换。
  * <p>
  */
-class Solution {
+class Solution0406 {
     /**
      * 双指针迭代法：
      * 时间复杂度：O（N*k）
@@ -40,7 +40,40 @@ class Solution {
      * @return
      */
     public ListNode reverseKGroup(ListNode head, int k) {
-        return null;
+        ListNode dummy = new ListNode(0);
+        // 工具节点初始位置一样
+        ListNode prev = dummy;
+        ListNode end = dummy;
+        while (head != null && head.next != null) {
+            for (int i = 0; i < k && end != null; i++) {
+                end = end.next;
+            }
+            if (end == null) {
+                break;
+            }
+            // 翻转这个轮链表，并保持对下一个节点的执行
+            ListNode start = prev.next;
+            ListNode next = end.next;
+            end.next = null;
+            prev.next = reverse(start);
+            start.next = next;
+
+            // 工具坐标移动到下一轮
+            prev = start;
+            end = prev;
+        }
+        return dummy.next;
+    }
+
+    private ListNode reverse(ListNode start) {
+        ListNode prev = null, current = start;
+        while (current != null) {
+            ListNode next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        return prev;
     }
 
 

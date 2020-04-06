@@ -38,6 +38,17 @@ import java.util.HashSet;
  * 你是否可以不用额外空间解决此题？
  */
 public class Solution0405 {
+    public static void main(String[] args) {
+        ListNode listNode3 = new ListNode(3);
+        ListNode listNode2 = new ListNode(3);
+        ListNode listNode0 = new ListNode(0);
+        ListNode listNode4 = new ListNode(-4);
+        listNode3.next = listNode2;
+        listNode2.next = listNode0;
+        listNode0.next = listNode4;
+        listNode4.next = listNode2;
+        new Solution0405().detectCycle5(listNode3);
+    }
 
     /**
      * 头节点到环节点的距离等于快慢节点相遇点到环节点的距离
