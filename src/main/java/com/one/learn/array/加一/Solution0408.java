@@ -21,13 +21,30 @@ package com.one.learn.array.加一;
 // Related Topics 数组
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution0408 {
     /**
+     * 倒序遍历每一位，+1，如果值设置为10的余数，如果余数非0直接返回
+     * 如果全是0，则最后生成新的数组，长度+1，首位为1.
+     * 时间复杂度O(N)
+     *
      * @param digits
      * @return
      */
     public int[] plusOne(int[] digits) {
-        return null;
+        if (digits == null) {
+            return null;
+        }
+        for (int i = digits.length - 1; i >= 0; i--) {
+            digits[i]++;
+            digits[i] = digits[i] % 10;
+            if (digits[i] != 0) {
+                return digits;
+            }
+
+        }
+        digits = new int[digits.length + 1];
+        digits[0] = 1;
+        return digits;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
